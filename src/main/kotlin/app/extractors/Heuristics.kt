@@ -931,9 +931,8 @@ val HeuristicsMap = mapOf<String, (String) -> ExtractorInterface?>(
         } else CommonExtractor(Lang.RENPY)
     },
     "rs" to { buf ->
-        if (RustRegex.containsMatchIn(buf)) {
-            CommonExtractor(Lang.RUST)
-        } else if (RenderscriptRegex.containsMatchIn(buf)) {
+        if (RustRegex.containsMatchIn(buf)) RustExtractor
+        else if (RenderscriptRegex.containsMatchIn(buf)) {
             CommonExtractor(Lang.RENDERSCRIPT)
         } else null
     },
